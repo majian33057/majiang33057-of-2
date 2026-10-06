@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>麻酱330五七的个人网页</title>
+    <title>Flex 布局</title>
     <meta name="description" content="Re01 编程课的Flex布局演示。" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
@@ -17,68 +17,144 @@
     <style>
       body {
         margin: 0;
+        /* vh 是view height 既视窗高度的意思，100就是100%占满窗口高度 */
         height: 100vh;
-        background-color: #eee;
+        background: linear-gradient(26deg, #667eea 0%, #764ba2 100%);
       }
+      /* * {
+        border: 1px solid #333;
+      } */
       .flex {
         display: flex;
       }
+      /* 占满比例 */
       .flex1 {
         flex: 1;
       }
+      /* 竖向 */
       .column {
         flex-direction: column;
       }
+      /* 阴影 */
       .yinYing {
         box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
           rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
       }
+      /* 白色背景 */
       .baiSe {
-        background-color: #fff;
+        background-color: ;
       }
+      /* 上下左右外边距 */
       .mg8 {
         margin: 8px;
       }
+      /* 右外边距 */
       .mgr8 {
         margin-right: 8px;
       }
+      /* 上外边距 */
       .mgt8 {
         margin-top: 8px;
       }
+      /* 四个小盒子 */
       .shuJu {
         height: 100px;
       }
+      /* 中间的大盒子 */
       .lieBiaoXiang {
-        height: 160px;
+        height: 240px;
       }
+      /* 导航条 */
       .daoHang {
         padding: 10px 20px;
         border-bottom: 1px solid rgb(201, 201, 201);
         font-size: 14px;
-        color: #666;
+        color: #BQACAgUAAyEGAASHRsPbAAEYnBNqc1H9NYIQm-Qy3FV_SUTd_f8RuwAC0TYAAniTmFeujDxIRrsuyT0E;
       }
       .neiRong::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome Safari */
       }
 
+      /* 当屏幕宽度小于600px时要改变的css */
       @media (max-width: 600px) {
+        /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
         .ceBian {
           display: none;
         }
+        /* 内容栏和数据栏flex方向改为竖向 */
         .neiRong {
           flex-direction: column;
         }
         .shuJuQu {
           flex-direction: column;
         }
+        /* 右区加左外边距 */
         .youQu {
           margin-left: 8px;
         }
+        /* 数据块外边距，大小改为自动宽高 */
         .shuJu {
           margin: 0 0 8px;
           flex: auto;
         }
       }
+      div {
+text-align: center;
+}
+img {
+display: inline-block;
+}
+a:hover {
+color: red;
+text-decoration: underline;
+}
+.button {
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+.blue-hover {
+            background: linear-gradient(26deg, #667eea 0%, #764ba2 100%); /* 初始背景色 */
+            padding: 15px;
+            transition: background-color 0.3s ease; /* 添加平滑过渡效果 */
+            cursor: pointer;
+        }
+
+        /* 当鼠标悬停在元素上时，背景变为蓝色 */
+        .blue-hover:hover {
+            background: purple;
+            color: white; /* 可选：同时改变文字颜色以提高对比度 */
+        }
     </style>
   </head>
   <body class="flex">
@@ -95,10 +171,10 @@
           justify-content: center;
           border-bottom: 1px solid #999;
         "
-        class="flex"
+        class="flex blue-hover"
       >
         <img
-          alt="麻酱330五七的图片"
+          alt="麻酱330五七"
           src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEYnBNqc1H9NYIQm-Qy3FV_SUTd_f8RuwAC0TYAAniTmFeujDxIRrsuyT0E.png"
           width="40px"
           height="40px"
@@ -107,13 +183,10 @@
       </div>
       <!-- 导航栏 -->
       <div class="flex1">
-        <div class="daoHang">此</div>
-        <div class="daoHang">页</div>
-        <div class="daoHang">面</div>
-        <div class="daoHang">为</div>
-        <div class="daoHang">下</div>
-        <div class="daoHang">载</div>
-        <div class="daoHang">区</div>
+        <div class="daoHang blue-hover">下</div>
+        <div class="daoHang blue-hover">载</div>
+        <div class="daoHang blue-hover">页</div>
+        <div class="daoHang blue-hover">码</div>
       </div>
     </div>
     <!-- 主区域 -->
@@ -124,108 +197,54 @@
       <div class="flex flex1 neiRong" style="overflow: auto">
         <!-- 左区 -->
         <div style="flex: 3" class="flex column mg8">
-          <!-- 数据区 -->
-          <div class="flex shuJuQu">
-            <!-- 五个小块显示重点数据 -->
-            <div class="shuJu baiSe yinYing flex1 mgr8">
-              <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.F0mYzwjAynJ-Y0edakQNEQAAAA?w=115&h=120&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="未知伤亡" width="75px" height="75px">
-              <a href="https://store.steampowered.com/app/4576490/Casualties_Unknown?l=schinese">未知伤亡下载链接</a>
-            </div>
-            <div class="shuJu baiSe yinYing flex1 mgr8">
-              <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.0-ZPrNPOQrOkNQ28K9ZpcAHaEL?w=287&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="gunsaw" width="80px" height="75px">
-              <a href="https://orsonik.itch.io/gunsaw-demo">gunsaw下载链接</a>
-            </div>
-            <div class="shuJu baiSe yinYing flex1 mgr8">
-              <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.f0yZDcXs1ZhHRuLyrwgfQAHaDp?w=299&h=172&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="PCL" width="80px" height="75px">
-              <a href="https://afdian.com/p/0164034c016c11ebafcb52540025c377">PCL下载</a>
-            </div>
-            <div class="shuJu baiSe yinYing flex1 mgr8">
-              <p>暂时没找到合适的图片(悲:试过但美观性很差)</p>
-              <a href="https://gp.qq.com/gicp/news/684/18510156.html">和平精英电脑版下载</a>
-            </div>
-            <div class="shuJu baiSe yinYing flex1">
-              <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.sJE956plOzjyDlutXsOSQQAAAA?w=132&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="watt toolkit" width="75px" height="75px">
-              <a href="https://apps.microsoft.com/detail/9mtcfhs560ng?launch=true&hl=zh-CN&gl=CN">watt toolkit下载</a>
-            </div>
-          </div>
-          <!-- 列表区， -->
+          <!-- 列表区，列表数据可以无限增加 -->
           <div class="flex column">
             <!-- 列表项 -->
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <p>未知伤亡篇</p>
-              <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.F0mYzwjAynJ-Y0edakQNEQAAAA?w=115&h=120&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="未知伤亡" width="90px" height="90px">
+            <div class="lieBiaoXiang mgt8 baiSe yinYing blue-hover ">
+              <img
+          alt="gunsaw-demo"
+          src="https://tse3-mm.cn.bing.net/th/id/OIP-C.0-ZPrNPOQrOkNQ28K9ZpcAHaEL?w=295&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3"
+          width="180px"
+          height="130px"
+        />
+        <button class="button"><a href="https://itch.io">下载地址</a></button>
+        <p>?!FREE?!
             </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.cvaaiiYGMajRotVB2Ni4UgHaEd?w=283&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="gunsaw角色" width="130px" height="110px">
-              <a href="https://www.nexusmods.com">gusaw下载</a>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing blue-hover">
+              <img
+              alt="PCL"
+              src="https://ts1.tc.mm.bing.net/th/id/OIP-C.4PXmOAqXKr0z8kCfDNTcLQHaEM?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=2&pid=ImgAns&rm=2"
+              width="170px"
+              height="130px"
+              />
+              <button class="button"><a href="https://ifdian.net/a/LTCat">下载地址</a></button>
+              <p>我的世界启动!</p>
             </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.n8ZDy4S-tDFiHLCpXtkS2wHaEI?w=323&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="qol更好的生活质量" width="130px" height="110px">
-              <a href="https://github.com/jimmyking9999999/QoL-Unknown">qol</a>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing blue-hover">
+                <img
+                alt="和平精英PC模拟器"
+                src="https://ts3.tc.mm.bing.net/th/id/ODF.kUT8ISWInZUBw0UK-jNv1w?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+                width="170px"
+                height="130px"
+                />
+                <button class="button"><a href="https://gp.qq.com/gicp/news/684/18510156.html">下载地址</a></button>
+                <p>射！</p>
             </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <p>可以去第3页查看教程</p>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing blue-hover">
+              <video width="320" height="240" controls>
+                <source src="https://static.jyshare.com/video/movie.mp4" type="video/mp4">
+                <source src="https://www.bilibili.com/?spm_id_from=333.1007.0.0" type="video/ogg">
+                </video>
             </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-            </p>更多mod可以去此链接下载👇</p>
-            <a href="https://www.nexusmods.com/scavprototype">N网</a>
-            </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <p>PCL篇</p>
-              <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.f0yZDcXs1ZhHRuLyrwgfQAHaDp?w=299&h=172&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="PCL" width="90px" height="90px">
-              </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <img src="https://pclce-web.demo.fis.ink/img/logo.ico" alt="PCL CE" width="110px" height="110">
-              <a href="https://pclce-web.demo.fis.ink/">更好的PCL CE（社区版）</a>
-            </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <p>gunsaw篇</p>
-              <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.0-ZPrNPOQrOkNQ28K9ZpcAHaEL?w=287&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="gunsaw" width="130px" height="110px">
-            </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <img src="https://private-user-images.githubusercontent.com/20020902/492582643-40c13f6f-a5cd-425f-90bd-f00f74a479b8.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODYzNzYwOTYsIm5iZiI6MTc4NjM3NTc5NiwicGF0aCI6Ii8yMDAyMDkwMi80OTI1ODI2NDMtNDBjMTNmNmYtYTVjZC00MjVmLTkwYmQtZjAwZjc0YTQ3OWI4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA4MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODEwVDE1Mjk1NlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWRlOWVmNDY0MjU4NTg3ZGYyODc5NmFhNTliZTg1ZjM0Y2JjYThiMTM4N2ExM2NkZGQyMWE4MTZiNmZhNDBiNzAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.ARKgVBRZxVcyIvdm8f5_k6WIBrfh6EovDGxozhcqhSU" alt="自定义枪械" width="130px" height="110px">
-              <a href="https://github.com/jimmyking9999999/gunsaw-custom-weapon-framework">自定义枪械</a>
-          </div>
-            <div class="lieBiaoXiang mgt8 baiSe yinYing" style="
-              text-align: center
-              ">
-              <p>watt toolkit篇</p>
-              <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.sJE956plOzjyDlutXsOSQQAAAA?w=132&h=180&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3" alt="watt toolkit" width="80px" height="70px">
+            <div class="lieBiaoXiang mgt8 baiSe yinYing blue-hover"></div>
           </div>
         </div>
         <!-- 右区 -->
-        <div style="flex: 1" class="youQu flex column mgr8 mgt8">
+        <div style="flex: 1" class="youQu flex column mgr8 mgt8 ">
           <!-- 提示区 -->
-          <div style="height: 150px" class="baiSe yinYing" style="
-            text-align: center
-            ">
-            <p>此网站所提供的下载几乎只能在PC上运行</p>
-            <p>要是此网站有侵权行为请向作者(麻酱330五七)汇报!</p>
-          </div>
-          <div style="
-            text-align: center
-            ">
-            <a href="https://majian33057.github.io/majiang33057/">前往第1页</a>
-            <a href="https://majian33057.github.io/majiang33057-of-3/">前往第3页</a>
-          </div>
+          <div style="height: 150px" class="baiSe yinYing blue-hover">这里所推荐的网站几乎只能在PC上运行，现在的下载页还只是作者推荐的</div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="mgt8 baiSe yinYing blue-hover">要是有侵权行为作者会改善的</div>
         </div>
       </div>
     </div>
